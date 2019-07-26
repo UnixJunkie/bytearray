@@ -34,7 +34,12 @@ let of_string s =
 
 let mmap_of_string fd s =
   let l = String.length s in
-  let ba = Bigarray.Array1.map_file fd Bigarray.char Bigarray.c_layout true l in
+  (* OCaml <= 4.06.1 *)
+  (* let ba = Bigarray.Array1.map_file fd Bigarray.char Bigarray.c_layout true l in *)
+  (* OCaml >= 4.06.1 *)
+  let ba =
+    Bigarray.array1_of_genarray
+      (Unix.map_file fd Bigarray.char Bigarray.c_layout true [|l|]) in
   unsafe_blit_from_string s 0 ba 0 l;
   ba
 
