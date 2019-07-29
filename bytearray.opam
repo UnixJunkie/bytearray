@@ -9,6 +9,8 @@ build: [
 ]
 depends: [
   "ocaml"
+  "dune"
+  "cppo"
   "base-bigarray"
 ]
 synopsis: "Efficient marshaling to and from bigarrays"
