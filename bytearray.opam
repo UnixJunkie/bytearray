@@ -11,11 +11,10 @@ depends: [
   "base-bigarray"
   "cppo"
   "dune"
-  "ocaml"
+  "ocaml" {>= "4.03.0"}
 ]
 synopsis: "Efficient marshaling to and from bigarrays"
 #url {
 #  src: "https://github.com/UnixJunkie/bytearray/archive/vXXX.tar.gz"
 #  checksum: "md5=YYY"
 #}
-
